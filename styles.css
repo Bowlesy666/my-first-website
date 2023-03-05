@@ -1,0 +1,941 @@
+* {
+    webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    background-color: #24252A;
+    scroll-behavior: smooth;
+  }
+  
+  /* everything below here is the header */
+  
+  .header-placeholder {
+    height: 45px;
+    width: 100%;
+  }
+  
+  li, a, .cta {
+    font-family: sans-serif;
+    font-weight: 500;
+    font-size: 16px;
+    color: #edf0f1;
+    text-decoration: none;
+  }
+  
+  header {
+    position: fixed;
+    left: 0;
+    top: 0;
+    z-index: 1000;
+    width: 100%;
+    display: flex;
+    justify-content: space-between; /* style 2 : flex end; aswell add in .logo margin-right: auto; and button margin-left: 20px; */
+    align-items: center;
+    padding: 5px 10%;
+  }
+  
+  .logo {
+    cursor: pointer;
+    background-color: rgba(0,0,0,0);
+    height: 35px;
+    /* style 2 add margin-right: auto; sends logo to left while keeping everything else right */
+    /* style 3 add in order: 3; to place after everything and also margin-left: auto; to push it to the right */
+  }
+  
+  /* style 3 add in nav { order: 1; } to keep everything to the left of logo */
+  
+  .nav_links {
+    list-style: none;
+  }
+  
+  .nav_links li {
+    display: inline-block;
+    padding: 0px 20px;
+  }
+  
+  /* style 3 .nav_links li:nth-child { padding: 0 20px 0 0; to fix distancing issue on left */
+  
+  .nav_links li a {
+    transition: all 0.3s ease 0s;
+  }
+  
+  .nav_links li a:hover {
+    color: #0088a9;
+  }
+  
+  /* style 3 change cta order with .cta { order: 2; so that this is in the middle */
+  
+  #cta {
+    /* syle 2 add in margin-left: 20px; */
+    /* style 3 border-left: 20px; to fix distance; */
+    padding: 9px 25px;
+    background-color: rgba(0,136,169,1);
+    border: none;
+    border-radius: 50px;
+    cursor: pointer ;
+    transition: all 0.3s ease 0s;
+  }
+  
+  .cta {
+    background-color: rgba(0,0,0,0);
+  }
+  
+  #cta:hover {
+    background-color: rgba(0,136,169,0.8);
+  }
+  
+  #hidden-form {
+    visibility: hidden;
+    position: fixed;
+    top: 10%;
+    right: -350px;
+    width: 320px;
+    height: 320px;
+    background-color: rgba(0,136,169,0.9);
+    -webkit-backdrop-filter: blur(5px);
+    backdrop-filter: blur(5px);
+    -webkit-box-shadow: 0 25px 23px rgba(0,0,0,0.015);
+    box-shadow: 0 25px 23px rgba(0,0,0,0.015);
+    transition: 0.3s;
+    padding: 20px 15px;
+    box-sizing: border-box;
+    border-radius: 10px;
+  }
+  
+  #hidden-form input[type="submit"] {
+    color: black;
+    padding: 9px 35px;
+    margin-top: 10px;
+    margin-left: 32%;
+    background-color: rgb(0, 167, 208);
+    border: none;
+    border-radius: 50px;
+    cursor: pointer ;
+    transition: all 0.3s ease 0s;
+  }
+  
+  textarea, input[type="text"], input[type="email"] {
+    background-color: white;
+    color: black;
+    border: solid 1px rgba(0,136,169,0.9);
+    width: 100%;
+    margin-top: 10px;
+  }
+  
+  form {
+    background-color: rgba(0,0,0,0);
+  }
+  
+  /* below is the new attempt at a burger menu, added contact form stuff to relevant stylings too */
+  
+  .overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity .35s, visibility .35s, height .35s;
+    overflow: hidden;
+    background: rgba(0,136,169,0.8);
+    z-index: -1;
+  }
+  
+  #hamburger-input, #contact-input {
+    display: none;
+  }
+  
+  
+  /* create hamburger icon below */
+  #hamburger-menu {
+    position: fixed;
+    top: 5px;
+    left: 35%;
+    width: 40px;
+    height: 30px;
+    display: none;
+    padding: 0px;
+    border: none;
+    margin: 0px;
+    background-image: repeating-linear-gradient(0deg, rgba(0,136,169,1), rgba(0,136,169,1) 4px, transparent 4px, transparent 10px);
+  } 
+  
+  #hamburger-menu:hover {
+    background-image: repeating-linear-gradient(0deg, rgba(0,136,169,0.8), rgba(0,136,169,0.8) 4px, transparent 4px, transparent 10px);
+  }
+  
+  #hamburger-menu #sidebar-menu  {
+    visibility: hidden;
+    position: fixed;
+    top: 10%;
+    left: -250px;
+    width: 200px;
+    height: 250px;
+    background-color: rgba(0,136,169,0.9);
+    -webkit-backdrop-filter: blur(5px);
+    backdrop-filter: blur(5px);
+    -webkit-box-shadow: 0 25px 23px rgba(0,0,0,0.015);
+    box-shadow: 0 25px 23px rgba(0,0,0,0.015);
+    transition: 0.3s;
+    padding: 20px 15px;
+    box-sizing: border-box;
+    border-radius: 10px;
+  }
+  
+  #hamburger-menu h3, #contact-form h3 {
+    color: black;
+    font-size: 1.5rem;
+    background-color: rgba(0,0,0,0);
+  }
+  
+  #contact-form h3 {
+    margin-left: 28%;
+  }
+  
+  #hamburger-menu h3 {
+    margin-left: 12%;
+    padding-bottom: 5px;
+  }
+  
+  #hamburger-menu ul {
+    padding-left: 0px;
+    background-color: rgba(0,0,0,0);
+  
+  }
+  
+  #hamburger-menu li {
+  list-style-type: none;
+  line-height: 2.8rem;
+  background-color: rgba(0,0,0,0);
+  }
+  
+  #hamburger-menu a {
+  color: white;
+  font-size: 1.3rem;
+  text-decoration: none;
+  background-color: rgba(0,0,0,0);
+  }
+  
+  #hamburger-menu a:hover {
+  text-decoration: underline;
+  }
+  
+  #hamburger-input:checked + #hamburger-menu #sidebar-menu {
+  visibility: visible;
+  left: 5%;
+  }
+  
+  #contact-input:checked + #contact-form #hidden-form {
+  visibility: visible;
+  right: 5%;
+  }
+  
+  #hamburger-input:checked ~ .overlay, #contact-input:checked ~ .overlay  {
+  visibility: visible;
+  opacity: 0.4;
+  }
+  
+  
+  /* below is scrolling ad styling */
+  
+  .ad-scroll-container {
+    border-top: 1px solid rgb(0,136,139);
+    border-bottom: 1px solid rgb(0,136,139);
+    padding: 3px;
+    overflow: hidden;
+  }
+  
+  .ad-scroll-text h3 {
+    color: white;
+    overflow: hidden;
+  }
+  
+  .ad-scroll-text {
+    overflow: hidden;
+    -moz-transform: translateX(100%);
+    -webkit-transform: translateX(100%);
+    transform: translateX(100%);
+  
+    -moz-animation: my-animation 10s linear infinite;
+    -webkit-animation: my-animtion 10s linear infinite;
+    animation: my-animation 10s linear infinite;
+  }
+  
+  @keyframes my-animation {
+    from {
+      -moz-transform: translateX(100%);
+      -webkit-transform: translateX(100%);
+      transform: translateX(100%);
+    }
+    to{
+      -moz-transform: translateX(-100%);
+      -webkit-transform: translateX(-100%);
+      transform: translateX(-100%);
+    }
+  }
+  
+  
+  
+  
+  
+  /* everything below here is website title */
+  
+  h1 {
+    font-size: 70px;
+    margin-top: 2px;
+  }
+  
+  h1, h2 {
+    background-color: #fff;
+    text-align: center;
+  }
+  
+  /* everything below here is for the slider panel */
+  
+  .container {
+    padding: 2rem;
+    background-color: #fff;
+  }
+  
+  .slider-wrapper  {
+    position: relative;
+    max-width: 100rem;
+    margin: 0 auto;
+    background-color: #fff;
+  }
+  
+  .slider {
+    display: flex;
+    aspect-ratio: 16 / 9;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    scroll-behaviour: smooth;
+    box-shadow: 0 1.5rem 3rem -0.75rem hsla(0, 0%, 0%, 0.25);
+    border-radius: 0.5rem;
+  }
+  
+  .slider img {
+    flex: 1 0 100%;
+    scroll-snap-align: start;
+    object-fit: cover;
+    object-fit: 100%;
+    height: 100%; /* try remove media queries to see if now fixed */
+  }
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  .slider-nav {
+    display: flex;
+    column-gap: 1rem;
+    position: absolute;
+    bottom: 1.5rem;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 1;
+  }
+  
+  .slider-nav a {
+    width: 0.6rem;
+    height: 0.6rem;
+    border-radius: 50%;
+    background-color: #fff;
+    opacity: 0.75;
+    transition: opacity ease 250ms;
+  }
+  
+  .slider-nav a:hover {
+    opacity: 1;
+  }
+  
+  /* below here is who is steve jobs section */
+  
+  p {
+    background-color: #fff;
+    padding-top: 15px;
+    font-size: 18px;
+  }
+  
+  /* below here is the timeline styling */
+  
+  
+  .timeline-wrapper {
+    position: relative; /* set parent as relative and child elements as absolute to arrange properly according to parent */
+    margin: 20px auto;
+    height: 580px;
+    overflow: auto;
+    scroll-snap-type: X mandatory;
+    background-color: white;
+  }
+  
+  .timeline {
+    display: flex;
+    height: 560px;
+    width: 200rem;
+    margin-left: 90px;
+    scroll-snap-type: X mandatory;
+    scroll-behaviour: smooth;
+    box-shadow: 0 1.5rem 3rem -0.75rem hsla(0, 0%, 0%, 0.25);
+    border-radius: 0.5rem;
+    background-color: white;
+  }
+  
+  .timeline-wrapper .middle-line {
+    position: absolute;
+    width: 200rem;
+    height: 5px;
+    top: 50%;
+    transform: translateY(-50%); 
+    background: #d9d9d9;
+  }
+  
+  .box {
+    width: 17%;
+    position: relative; /* because it is parent element to box-content */
+    min-height: 300px;
+    float: right;
+    background-color: rgba(0,0,0,0.0);
+    margin-left: 80px;
+  }
+  
+  .box .date {
+    position: absolute;
+    top: 51.5%;
+    left: 0px;
+    transform: translateY(-50%);
+    width: 50px;
+    height: 50px;
+    border-radius: 100%;
+    background: #fff;
+    border: 2px solid #d9d9d9; 
+    margin-left: -13px;
+  }
+  
+  .date p {
+    text-align: center;
+    margin-top: 0px;
+    margin-bottom: 0px;
+    border-radius: 100%;
+  }
+  
+  .box .box-content {
+    border-radius: 5px;
+    background-color: #00b0bd;
+    width: 180px;
+    height: 190px;
+    position: absolute;
+    left: -77px;
+    padding: 15px;
+  }
+  
+  .box-content p {
+    margin: 0;
+    background-color: #00b0bd;
+    color: white;
+  }
+  
+  .box-bottom .box-content {
+    top: 65%;
+  }
+  
+  .box-content::before {
+    content: " ";
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    border: 10px solid transparent;
+  }
+  
+  .box-bottom .box-content::before {
+    border-bottom-color: #00b0bd;
+    top: -20px;
+  }
+  
+  .box-top .box-content::before {
+    border-top-color: #00b0bd;
+    bottom: -20px;
+  }
+  
+  /* all below is for accordian menu */
+  
+  #section {
+    background-color: white
+  }
+  
+  details {
+    width: 100%;
+    padding: 0.5rem;
+    border-radius: 8px;
+    margin-left: 15px;
+    margin-bottom: 4px;
+    background: #00b0bd;
+    box-shadow: 4px 4px 3px rgba(0,0,0,0.15)
+  }
+  
+  summary {
+    cursor: pointer;
+    background-color: #00b0bd;
+  }
+  
+  summary h3 {
+    display: inline;
+    margin: left;
+    font-size: 1.25rem;
+    background-color: #00b0bd;
+    color: white;
+  }
+  
+  details p {
+    margin-left: 1rem;
+    opacity: 0.4;
+    background-color: white;
+  }
+  
+  /* below is the waterdrop apple logo styling */
+  
+  .logo-apple {
+    height: 150px;
+    width: 150px;
+    background-color: rgba(0,0,0,0);
+    position: relative;
+    bottom: 8px;
+    color: #444;
+  }
+  
+  .drop-wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 300px;
+    background: radial-gradient(circle, rgba(238,238,238,1) 20%, rgba(252,70,107,0) 100%);
+    
+    border-bottom: solid 1px #00b0bd;
+    border-top: solid 1px #00b0bd;
+  }
+  
+  .drop {
+    position: relative;
+    width: 250px;
+    height: 250px;
+    background: #eee;
+    box-shadow: inset 10px 10px 10px rgba(0,0,0,0.05), 15px 25px 10px rgba(0,0,0,0.05), 15px 20px 20px rgba(0,0,0,0.05), inset -10px -10px 15px rgba(255,255,255,0.9);
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .drop::before {
+    content: " ";
+    position: absolute;
+    top: 65px;
+    left: 33px;
+    width: 28px;
+    height: 28px;
+    border-radius: 50%;
+    background-color: rgb(246, 246, 246);
+  }
+  
+  .drop::after {
+    content: " ";
+    position: absolute;
+    top: 42px;
+    left: 68px;
+    width: 17px;
+    height: 17px;
+    border-radius: 50%;
+    background: rgb(247, 247, 247);
+  }
+  
+  .drp img {
+    background: rgba(0,0,0,0);
+  }
+  
+  /* all below is for the testimonials */
+  
+  p a {
+    background-color: white;
+    color: #00b0bd;
+  }
+  
+  .testimonials-box {
+    width: 100%;
+    height: 500px;
+    overflow: hidden;
+    /*
+    position: relative;
+    -webkit-transform: translate(-50%,-50%);
+    -ms-transform: translate(-50%,-50%);
+    transform: translate(-50%, -50%);
+    top: 50%;
+    left: 50%;*/
+  } 
+  
+  .containerthree {
+    width: 100%;
+    height: 100%;
+    position: relative;
+    margin: auto;
+    background:linear-gradient(270deg, #00b0bd, #007b84);
+    /*-webkit-transform: translate(-50%,-50%);
+    -ms-transform: translate(-50%,-50%);
+    transform: translate(-50%, -50%);
+    top: 50%;
+    left: 50%; */
+  }
+  
+  .card {
+    height: 315px;
+    min-width: 300px;
+    max-width: 45%;
+    margin: auto;
+    background-color: rgba(255, 255, 255, 0.06);
+    -webkit-backdrop-filter: blur(15px);
+    backdrop-filter: blur(15px);
+    -webkit-box-shadow: 0 25px 23px rgba(0,0,0,0.15);
+    box-shadow: 0 25px 23px rgba(0,0,0,0.15);
+    position: relative;
+    top: 20%;
+    padding: 50px 25px;
+    border: 1.5px solid rgba(255, 255, 255, 0.06);
+    border-radius: 13px;
+  }
+  
+  .card h3, .card p, .card h5 {
+    background-color: rgba(255, 255, 255, 0);
+  }
+  
+  .card h3 {
+    font-weight: 900;
+    margin-top: -30px;
+    margin-bottom: 15px;
+  }
+  
+  .card p {
+  text-align: center;
+  font-style: italic;
+  }
+  
+  .card h5 {
+    margin-top: 25px;
+    float: right;
+    font-weight: 900;
+  }
+  
+  .shape1 {
+    height: 150px;
+    width: 150px;
+    position: absolute;
+    background: -o-linear-gradient(315deg, #ff5b84, #eb3461);
+    background: linear-gradient(135deg, #f96c90, #fc134d);
+    border-radius: 50%;
+    top: 40px;
+    left: 65%;
+  }
+  
+  .shape2 {
+    height: 250px;
+    width: 250px;
+    position: absolute;
+    background: -o-linear-gradient(315deg, #426cf8, #3ebdf0);
+    background: linear-gradient(115deg, #426cf8, #3ebdf0);
+    border-radius: 50%;
+    top: 240px;
+    left: 35%;
+  }
+  
+  .shape3 {
+    height: 350px;
+    width: 350px;
+    position: absolute;
+    background: -o-linear-gradient(315deg, #ff5b84, #eb3461);
+    background: linear-gradient(135deg, #dedede, #630091);
+    border-radius: 50%;
+    top: 140px;
+    left: 5%;
+  }
+  
+  .shape4 {
+    height: 250px;
+    width: 250px;
+    position: absolute;
+    background: -o-linear-gradient(315deg, #426cf8, #3ebdf0);
+    background: linear-gradient(115deg, #426cf8, #f03e3e);
+    border-radius: 50%;
+    top: 50px;
+    left: 65%;
+  }
+  
+  .shape5 {
+    height: 50px;
+    width: 50px;
+    position: absolute;
+    background: -o-linear-gradient(315deg, #ff5b84, #eb3461);
+    background: linear-gradient(135deg, #f96cc3, #d203b6);
+    border-radius: 50%;
+    top: 70px;
+    left: 28%;
+  }
+  
+  .shape6 {
+    height: 120px;
+    width: 120px;
+    position: absolute;
+    background: -o-linear-gradient(315deg, #426cf8, #3ebdf0);
+    background: linear-gradient(115deg, #42f87c, #00b348);
+    border-radius: 50%;
+    top: 240px;
+    left: 70%;
+  }
+  
+  .shape7 {
+    height: 150px;
+    width: 150px;
+    position: absolute;
+    background: -o-linear-gradient(315deg, #ff5b84, #eb3461);
+    background: linear-gradient(135deg, #eff96c, #f93465);
+    border-radius: 50%;
+    top: 40px;
+    left: 45%;
+  }
+  
+  .shape8 {
+    height: 140px;
+    width: 140px;
+    position: absolute;
+    background: -o-linear-gradient(315deg, #426cf8, #3ebdf0);
+    background: linear-gradient(115deg, #f7558e, #3ebdf0);
+    border-radius: 50%;
+    top: 385px;
+    left: 5%;
+  }
+  
+  /* below is the interesting links styling */
+  
+  .further-links-header {
+    font-size: 26px;
+  }
+  
+  .further-links-p {
+    padding-bottom: 40px;
+  }
+  
+  .further-links, .interesting-gallery, .interesting-link-wrapper, .interesting-photo {
+    background-color: white;
+  }
+  
+  .interesting-gallery {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    gap: 30px;
+    max-width: 900px;
+    margin: 0 auto;
+    background-color: white;
+  }
+  
+  .interesting-gallery a h1 {
+    position: absolute;
+    z-index: 1;
+    font-size: 32px;
+    transform: translate(-20px,-30px);
+    background-color: rgba(0,0,0,0);
+    color: rgb(0, 0, 255);
+  }
+  
+  .interesting-gallery img {
+    width: 250px;
+    height: 250px;
+    object-fit: cover;
+    border-radius: 75px;
+  }
+  
+  .interesting-photo img:hover {
+    box-shadow: 0 5px 35px 0px rgba(0,0,0,0.2);
+  }
+  
+  
+  /* didnt work at all, supposed to be colorful rings spinning around pictures on hover
+  .interesting-link-wrapper:hover::before, .interesting-link-wrapper:hover::after {
+    display: block;
+    content: "";
+    position: absolute;
+    width: 255px;
+    height: 255px;
+    background: #FDA8CF;
+    border-radius: 75px;
+    z-index: -1;
+    animation: 1s clockwise infinite;
+  }
+  
+  .interesting-link-wrapper:hover::after {
+    background: #F3CE5E;
+    animation: 2s counterclockwise infinite;
+  }
+  
+  @keyframes clockwise {
+    0% {
+      top: -5px;
+      left: 0;
+    }
+    12% {
+      top: -2px;
+      left: 2px;
+    }
+    25% {
+      top: 0;
+      left: 5px;    
+    }
+    37% {
+      top: 2px;
+      left: 2px;
+    }
+    50% {
+      top: 5px;
+      left: 0;    
+    }
+    62% {
+      top: 2px;
+      left: -2px;
+    }
+    75% {
+      top: 0;
+      left: -5px;
+    }
+    87% {
+      top: -2px;
+      left: -2px;
+    }
+    100% {
+      top: -5px;
+      left: 0;    
+    }
+  }
+  
+  @keyframes counterclockwise {
+    0% {
+      top: -5px;
+      right: 0;
+    }
+    12% {
+      top: -2px;
+      right: 2px;
+    }
+    25% {
+      top: 0;
+      right: 5px;    
+    }
+    37% {
+      top: 2px;
+      right: 2px;
+    }
+    50% {
+      top: 5px;
+      right: 0;    
+    }
+    62% {
+      top: 2px;
+      right: -2px;
+    }
+    75% {
+      top: 0;
+      right: -5px;
+    }
+    87% {
+      top: -2px;
+      right: -2px;
+    }
+    100% {
+      top: -5px;
+      right: 0;    
+    }
+  } */
+  
+  
+  /* below here os the footer styling */
+  
+  .footer-container {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+   /* justify-content: space-between; *//* shoves it left and right too much edit: fixed with margin: auto in footer section instead */
+    gap: 30px;
+    max-width: 100%;
+    margin: 0 auto;
+    background-color: #24252A;
+    padding: 20px 10px;
+  }
+  
+  .footer-section {
+    background-color: #24252A;
+    padding: 20px;
+    margin: auto;
+    font-size: 30px;
+    text-align: center;
+    min-width: 250px;
+    max-width: 250px;
+    color: rgb(80, 80, 250);
+  }
+  
+  .footer-section p {
+    background-color: #24252A;
+    font-size: small;
+  }
+  
+  .logo-footer {
+    width: 100px;
+  }
+  
+  /* below is social media link icons styling */
+  
+  .social-logo {
+    width: 20%;
+    margin: 0 10px;
+    padding: 0;
+    float: left;
+  }
+  
+  .social-logo:hover {
+    width: 19%;
+    margin-right: 12px;
+  }
+  
+  
+  /* media queries should go at the end of the file, still not fixed .slider img issue on smaller screens-pic far too big */
+  
+  @media screen and (max-width: 480px) {
+  .slider img {
+    height: 100%;
+  }
+  }
+  
+  @media screen and (max-width: 390px) {
+  .slider img {
+    height: 100%;
+  }
+  }
+  
+  @media screen and (max-width: 750px) {
+  #main-menu {
+    display: none;
+  }
+  #hamburger-menu {
+    display: inline;
+  }
+  .slider img {
+    max-width: 750px;
+  }
+  }
+  
